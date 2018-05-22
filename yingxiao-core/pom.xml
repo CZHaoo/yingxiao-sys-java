@@ -42,13 +42,13 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.9-rc</version>
+                        <version>8.0.11</version>
                     </dependency>
                 </dependencies>
                 <configuration>
                     <!--配置文件的路径-->
                     <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
-                    <verbose>true</verbose>
+                    <!--<verbose>true</verbose>-->
                     <overwrite>true</overwrite>
                 </configuration>
             </plugin>
@@ -64,7 +64,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <!--mybatis generator begin-->
+        <!--mybatis generator end-->
     </build>
 
 </project>

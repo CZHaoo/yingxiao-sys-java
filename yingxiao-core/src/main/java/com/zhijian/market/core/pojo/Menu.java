@@ -1,7 +1,5 @@
 package com.zhijian.market.core.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.io.Serializable;
 import java.util.Date;
 
