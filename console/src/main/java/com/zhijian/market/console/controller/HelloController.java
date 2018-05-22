@@ -1,6 +1,9 @@
 package com.zhijian.market.console.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.zhijian.market.core.mapper.MenuMapper;
 import com.zhijian.market.core.pojo.Menu;
 import com.zhijian.market.core.pojo.MenuExample;
@@ -26,8 +29,11 @@ public class HelloController {
 
     @RequestMapping("/list")
     public List<Menu> menuList() {
+        PageHelper.startPage(2, 1);
         MenuExample menuExample = new MenuExample();
         List<Menu> menus = menuMapper.selectByExample(menuExample);
+        System.out.println(JSON.toJSONString(menus));
+        System.out.println(menus instanceof Page);
         return menus;
     }
 }
