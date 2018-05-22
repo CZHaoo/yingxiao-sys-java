@@ -3,13 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>market-sys-java</artifactId>
+        <artifactId>yingxiao-sys-java</artifactId>
         <groupId>com.zhijian</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>portal</artifactId>
+    <artifactId>yingxiao-portal</artifactId>
     <description>至简科技内部营销系统-前台接口</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zhijian</groupId>
+            <artifactId>yingxiao-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

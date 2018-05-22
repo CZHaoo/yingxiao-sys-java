@@ -4,16 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zhijian</groupId>
-    <artifactId>market-sys-java</artifactId>
+    <artifactId>yingxiao-sys-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>console</module>
-        <module>core</module>
-        <module>portal</module>
+        <module>yingxiao-console</module>
+        <module>yingxiao-core</module>
+        <module>yingxiao-portal</module>
     </modules>
     <packaging>pom</packaging>
 
-    <name>market-sys-java</name>
+    <name>yingxiao-sys-java</name>
     <description>至简科技内部营销系统</description>
 
     <parent>
