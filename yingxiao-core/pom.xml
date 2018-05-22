@@ -54,7 +54,7 @@
             </plugin>
 
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
@@ -62,7 +62,7 @@
                         <phase>none</phase>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
         <!--mybatis generator end-->
     </build>
