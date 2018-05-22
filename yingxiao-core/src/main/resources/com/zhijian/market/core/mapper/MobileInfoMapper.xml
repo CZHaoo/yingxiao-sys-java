@@ -9,6 +9,7 @@
     <result column="utime" jdbcType="TIMESTAMP" property="utime" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="call_status" jdbcType="INTEGER" property="callStatus" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, mobile, access_ip, ctime, utime, remark, call_status
+    id, mobile, access_ip, ctime, utime, remark, call_status, is_delete
   </sql>
   <select id="selectByExample" parameterType="com.zhijian.market.core.pojo.MobileInfoExample" resultMap="BaseResultMap">
     select
@@ -104,10 +105,10 @@
   <insert id="insert" parameterType="com.zhijian.market.core.pojo.MobileInfo">
     insert into t_mobile_info (id, mobile, access_ip, 
       ctime, utime, remark, 
-      call_status)
+      call_status, is_delete)
     values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{accessIp,jdbcType=VARCHAR}, 
       #{ctime,jdbcType=TIMESTAMP}, #{utime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{callStatus,jdbcType=INTEGER})
+      #{callStatus,jdbcType=INTEGER}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zhijian.market.core.pojo.MobileInfo">
     insert into t_mobile_info
@@ -133,6 +134,9 @@
       <if test="callStatus != null">
         call_status,
       </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -155,6 +159,9 @@
       </if>
       <if test="callStatus != null">
         #{callStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -188,6 +195,9 @@
       <if test="record.callStatus != null">
         call_status = #{record.callStatus,jdbcType=INTEGER},
       </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +211,8 @@
       ctime = #{record.ctime,jdbcType=TIMESTAMP},
       utime = #{record.utime,jdbcType=TIMESTAMP},
       remark = #{record.remark,jdbcType=VARCHAR},
-      call_status = #{record.callStatus,jdbcType=INTEGER}
+      call_status = #{record.callStatus,jdbcType=INTEGER},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +238,9 @@
       <if test="callStatus != null">
         call_status = #{callStatus,jdbcType=INTEGER},
       </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -237,7 +251,8 @@
       ctime = #{ctime,jdbcType=TIMESTAMP},
       utime = #{utime,jdbcType=TIMESTAMP},
       remark = #{remark,jdbcType=VARCHAR},
-      call_status = #{callStatus,jdbcType=INTEGER}
+      call_status = #{callStatus,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

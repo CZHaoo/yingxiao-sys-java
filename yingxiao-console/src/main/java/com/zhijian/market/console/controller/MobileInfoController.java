@@ -22,4 +22,5 @@ public class MobileInfoController {
         return mobileInfoService.list(listReq);
     }
 
+
 }

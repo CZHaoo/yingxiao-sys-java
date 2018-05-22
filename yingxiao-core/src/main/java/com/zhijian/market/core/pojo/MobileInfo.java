@@ -18,6 +18,8 @@ public class MobileInfo implements Serializable {
 
     private Integer callStatus;
 
+    private Byte isDelete;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -76,6 +78,14 @@ public class MobileInfo implements Serializable {
         this.callStatus = callStatus;
     }
 
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -94,7 +104,8 @@ public class MobileInfo implements Serializable {
             && (this.getCtime() == null ? other.getCtime() == null : this.getCtime().equals(other.getCtime()))
             && (this.getUtime() == null ? other.getUtime() == null : this.getUtime().equals(other.getUtime()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
-            && (this.getCallStatus() == null ? other.getCallStatus() == null : this.getCallStatus().equals(other.getCallStatus()));
+            && (this.getCallStatus() == null ? other.getCallStatus() == null : this.getCallStatus().equals(other.getCallStatus()))
+            && (this.getIsDelete() == null ? other.getIsDelete() == null : this.getIsDelete().equals(other.getIsDelete()));
     }
 
     @Override
@@ -108,6 +119,7 @@ public class MobileInfo implements Serializable {
         result = prime * result + ((getUtime() == null) ? 0 : getUtime().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getCallStatus() == null) ? 0 : getCallStatus().hashCode());
+        result = prime * result + ((getIsDelete() == null) ? 0 : getIsDelete().hashCode());
         return result;
     }
 
@@ -124,6 +136,7 @@ public class MobileInfo implements Serializable {
         sb.append(", utime=").append(utime);
         sb.append(", remark=").append(remark);
         sb.append(", callStatus=").append(callStatus);
+        sb.append(", isDelete=").append(isDelete);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
