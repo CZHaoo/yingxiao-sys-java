@@ -74,6 +74,14 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.43</version>
         </dependency>
+
+        <!--lombok begin-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--lombok end-->
     </dependencies>
 
     <build>
