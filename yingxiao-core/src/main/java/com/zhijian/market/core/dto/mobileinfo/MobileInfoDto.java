@@ -22,7 +22,29 @@ public interface MobileInfoDto {
     class ListReq extends ReqEntity {
         private Integer callStatus;
         private String mobile;
+    }
 
+    /**
+     * 删除请求
+     */
+    @Data
+    class DeleteReq extends ReqEntity {
+        private Integer[] ids;
+    }
+
+    /**
+     * 回访请求
+     */
+    @Data
+    class CallReq extends ReqEntity {
+        private Integer id;
+        private Integer callStatus;
+    }
+
+    /**
+     * 更新请求
+     */
+    class UpdateReq extends ReqEntity<MobileInfo> {
 
     }
 
