@@ -42,15 +42,15 @@ public class MobileInfoService {
             throw new RuntimeException("手机号不合法");
         }
 
-        MobileInfoExample mobileInfoExample = new MobileInfoExample();
-        MobileInfoExample.Criteria criteria = mobileInfoExample.createCriteria();
-        criteria.andMobileEqualTo(mobileInfo.getMobile()).andCtimeGreaterThanOrEqualTo(DateUtil.currMonthOfFirstDay()).andCtimeLessThan(DateUtil.nextMonthOfFirstDay());
-        List<MobileInfo> mobileInfos = mobileInfoMapper.selectByExample(mobileInfoExample);
-
-        // 每月不能重复申请
-        if(mobileInfos != null && mobileInfos.size() >0) {
-            throw new RuntimeException("手机号当月已经申请");
-        }
+//        MobileInfoExample mobileInfoExample = new MobileInfoExample();
+//        MobileInfoExample.Criteria criteria = mobileInfoExample.createCriteria();
+//        criteria.andMobileEqualTo(mobileInfo.getMobile()).andCtimeGreaterThanOrEqualTo(DateUtil.currMonthOfFirstDay()).andCtimeLessThan(DateUtil.nextMonthOfFirstDay());
+//        List<MobileInfo> mobileInfos = mobileInfoMapper.selectByExample(mobileInfoExample);
+//
+//        // 每月不能重复申请
+//        if(mobileInfos != null && mobileInfos.size() >0) {
+//            throw new RuntimeException("手机号当月已经申请");
+//        }
 
         mobileInfo.setAccessIp(IpUtil.getClientIp());
         mobileInfoMapper.insertSelective(mobileInfo);
