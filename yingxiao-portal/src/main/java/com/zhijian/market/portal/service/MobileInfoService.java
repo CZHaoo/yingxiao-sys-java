@@ -3,11 +3,15 @@ package com.zhijian.market.portal.service;
 import com.zhijian.market.core.dto.RespEntity;
 import com.zhijian.market.core.dto.mobileinfo.MobileInfoDto;
 import com.zhijian.market.core.mapper.MobileInfoMapper;
+import com.zhijian.market.core.pojo.MobileInfo;
+import com.zhijian.market.core.pojo.MobileInfoExample;
+import com.zhijian.market.core.util.DateUtil;
 import com.zhijian.market.core.util.IpUtil;
 import com.zhijian.market.core.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -36,6 +40,16 @@ public class MobileInfoService {
 
         if(!isMobile(mobileInfo.getMobile())) {
             throw new RuntimeException("手机号不合法");
+        }
+
+        MobileInfoExample mobileInfoExample = new MobileInfoExample();
+        MobileInfoExample.Criteria criteria = mobileInfoExample.createCriteria();
+        criteria.andMobileEqualTo(mobileInfo.getMobile()).andCtimeGreaterThanOrEqualTo(DateUtil.currMonthOfFirstDay()).andCtimeLessThan(DateUtil.nextMonthOfFirstDay());
+        List<MobileInfo> mobileInfos = mobileInfoMapper.selectByExample(mobileInfoExample);
+
+        // 每月不能重复申请
+        if(mobileInfos != null && mobileInfos.size() >0) {
+            throw new RuntimeException("手机号当月已经申请");
         }
 
         mobileInfo.setAccessIp(IpUtil.getClientIp());

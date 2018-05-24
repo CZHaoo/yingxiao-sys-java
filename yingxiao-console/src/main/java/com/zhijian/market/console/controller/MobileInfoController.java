@@ -5,14 +5,11 @@ import com.zhijian.market.core.dto.RespEntity;
 import com.zhijian.market.core.dto.mobileinfo.MobileInfoDto;
 import com.zhijian.market.core.pojo.MobileInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/mobile")
+@RequestMapping("/Czh/mobile")
 @RestController
 public class MobileInfoController {
 
@@ -25,12 +22,12 @@ public class MobileInfoController {
     }
 
     @PostMapping("/delete")
-    public RespEntity delete( MobileInfoDto.DeleteReq deleteReq) {
+    public RespEntity delete(@RequestBody MobileInfoDto.DeleteReq deleteReq) {
         return  mobileInfoService.delete(deleteReq);
     }
 
     @PostMapping("/call")
-    public RespEntity call(MobileInfoDto.CallReq callReq) {
+    public RespEntity call(@RequestBody MobileInfoDto.CallReq callReq) {
         return mobileInfoService.call(callReq);
     }
 
@@ -40,7 +37,7 @@ public class MobileInfoController {
     }
 
     @PostMapping("/update")
-    public RespEntity update(MobileInfoDto.UpdateReq updateReq) {
+    public RespEntity update(@RequestBody MobileInfoDto.UpdateReq updateReq) {
         return mobileInfoService.update(updateReq);
     }
 

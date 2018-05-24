@@ -4,6 +4,8 @@ import com.zhijian.market.core.dto.ReqEntity;
 import com.zhijian.market.core.pojo.MobileInfo;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * 手机信息 数据传输
  */
@@ -22,6 +24,7 @@ public interface MobileInfoDto {
     class ListReq extends ReqEntity {
         private Integer callStatus;
         private String mobile;
+        private Date[] rangeTime;
     }
 
     /**

@@ -11,12 +11,12 @@ import java.util.List;
 
 public class RespEntity<E> {
     private Integer status;
-    private String msg;
+    private String info;
     private E data;
 
     public RespEntity(Integer status, String msg, E data) {
         this.status = status;
-        this.msg = msg;
+        this.info = msg;
         this.data = data;
     }
 
@@ -65,12 +65,12 @@ public class RespEntity<E> {
         this.status = status;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getInfo() {
+        return info;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public E getData() {
