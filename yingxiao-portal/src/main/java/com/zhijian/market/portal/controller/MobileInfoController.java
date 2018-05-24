@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 手机信息 controller
  */
 @RestController
-@RequestMapping("/mobile")
+@RequestMapping("Napi/mobile")
 public class MobileInfoController {
 
     @Autowired
