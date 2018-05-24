@@ -13,7 +13,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>yingxiao-sys-java</name>
+    <name>yingxiao-sys-java</name>  
     <description>至简科技内部营销系统</description>
 
     <parent>
